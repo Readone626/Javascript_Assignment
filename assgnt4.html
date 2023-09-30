@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid App</title>
+</head>
+<body>
+	<h1>Grid App</h1>
+
+	<table>
+		<tbody>
+			<tr>
+				<td><input type="text" id="input-1-1"></td>
+				<td><input type="text" id="input-1-2"></td>
+				<td><input type="text" id="input-1-3"></td>
+				<td><input type="text" id="input-1-4"></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="input-2-1"></td>
+				<td><input type="text" id="input-2-2"></td>
+				<td><input type="text" id="input-2-3"></td>
+				<td><input type="text" id="input-2-4"></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="input-3-1"></td>
+				<td><input type="text" id="input-3-2"></td>
+				<td><input type="text" id="input-3-3"></td>
+				<td><input type="text" id="input-3-4"></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="input-4-1"></td>
+				<td><input type="text" id="input-4-2"></td>
+				<td><input type="text" id="input-4-3"></td>
+				<td><input type="text" id="input-4-4"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<input type="text" id="name-input">
+	<button onclick="addName()">Add</button>
+
+	<script>
+		function addName() {
+			// Get the name input and trim whitespace
+			var name = document.getElementById("name-input").value.trim();
+
+			// If the name is empty, don't do anything
+			if (name === "") {
+				return;
+			}
+
+			// Find the first empty cell in the grid
+			for (var i = 1; i <= 4; i++) {
+				for (var j = 1; j <= 4; j++) {
+					var input = document.getElementById("input-" + i + "-" + j);
+					if (input.value === "") {
+						input.value = name;
+						return;
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

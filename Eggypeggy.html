@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Eggy Peggy Converter</title>
+  </head>
+  <body>
+    <h1>Eggy Peggy Converter</h1>
+    <form>
+      <label for="sentence">Enter a sentence:</label>
+      <input type="text" id="sentence" name="sentence">
+      <br>
+      <button type="button" onclick="convert()">Convert</button>
+    </form>
+    <br>
+    <p id="output"></p>
+    <script>
+      function convert() {
+        let sentence = document.getElementById('sentence').value;
+        let vowels = ['a', 'e', 'i', 'o', 'u'];
+        let newSentence = '';
+
+        for (let i = 0; i < sentence.length; i++) {
+          if (vowels.includes(sentence[i].toLowerCase())) {
+            newSentence += 'Eggy Peggy';
+          } else {
+            newSentence += sentence[i];
+          }
+        }
+
+        document.getElementById('output').innerHTML = newSentence;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Form</title>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="age"><br><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+    <input type="button" value="Submit" onclick="displayInfo()">
+  </form>
+  
+  <div id="info"></div>
+  
+  <script>
+    function displayInfo() {
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var address = document.getElementById("address").value;
+      
+      var info = document.getElementById("info");
+      info.innerHTML = "<p>Name: " + name + "</p><p>Age: " + age + "</p><p>Address: " + address + "</p>";
+    }
+  </script>
+</body>
+</html>

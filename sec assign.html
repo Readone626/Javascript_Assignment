@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Subject Scores</title>
+  </head>
+  <body>
+    <h1>Subject Scores</h1>
+    <form>
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div>
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" value="Mary" required />
+        </div>
+        <div>
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" value="John" required />
+        </div>
+        <div>
+          <label for="gender">Gender:</label>
+          <select id="gender" required>
+            <option value="">-- Select Gender --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>                              
+          </select>
+        </div>
+        <div>
+          <label for="age">Age:</label>
+          <input type="number" id="age" value="25" min="18" max="30" required />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Subject Scores</legend>
+        <div>
+          <label for="subject1">Subject 1:</label>
+          <input type="text" id="subject1" value="Math" required />
+          <input type="number" id="score1" value="80" min="0" max="100" required />
+        </div>
+        <div>
+          <label for="subject2">Subject 2:</label>
+          <input type="text" id="subject2" value="Science" required />
+          <input type="number" id="score2" value="85" min="0" max="100" required />
+        </div>
+        <div>
+          <label for="subject3">Subject 3:</label>
+          <input type="text" id="subject3" value="English" required />
+          <input type="number" id="score3" value="90" min="0" max="100" required />
+        </div>
+        <div>
+          <label for="subject4">Subject 4:</label>
+          <input type="text" id="subject4" value="History" required />
+          <input type="number" id="score4" value="75" min="0" max="100" required />
+        </div>
+        <div>
+          <label for="subject5">Subject 5:</label>
+          <input type="text" id="subject5" value="Art" required />
+          <input type="number" id="score5" value="95" min="0" max="100" required />
+        </div>
+      </fieldset>
+      <div>
+        <button type="button" id="submit">Submit</button>
+      </div>
+    </form>
+    <div id="results"></div>
+    <script>
+      // Define a function to get the personal details from the form
+      function getPersonalDetails() {}
+        // Get the values of the first name, last name, gender, and age fields
+        const firstName = document.getElementById("firstName").value || "Mary";
+        const lastName = document.getElementById("lastName").value || "John";
+        const gender = document.getElementById("gender").value || "male";
+        const age = Number(document.getElementById

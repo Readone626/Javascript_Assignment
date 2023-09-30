@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Hostel Allocation</title>
+  </head>
+  <body>
+    <h1>User Hostel Allocation</h1>
+    <div>
+      <div>First Name:</div>
+      <input type="text" id="firstName" required>
+    </div>
+    <div>
+      <div>Last Name:</div>
+      <input type="text" id="lastName" required>
+    </div>
+    <div>
+      <div>Gender:</div>
+      <select id="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div>
+      <div>Age:</div>
+      <input type="number" id="age" required>
+    </div>
+    <button onclick="allocateHostel()">Allocate Hostel</button>
+
+    <script>
+      // array of hostel objects with an initial count of 0 members
+      const hostels = [
+        { name: 'A', count: 0 },
+        { name: 'B', count: 0 },
+        { name: 'C', count: 0 }
+      ];
+
+      function allocateHostel() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const gender = document.getElementById('gender').value;
+        const age = document.getElementById('age').value;
+
+        // find the hostel with the lowest count and allocate the user to it
+        let hostel = hostels.reduce((a, b) => a.count < b.count ? a : b);
+        if (hostel.count < 4) {
+          hostel.count++;
+          alert(`Welcome to Hostel ${hostel.name} ${firstName} ${lastName}!`);
+        } else {
+          // if the hostel is full, prompt the user to allocate to the next hostel
+          const nextHostel = hostels[(hostels.indexOf(hostel) + 1) % hostels.length];
+          if (nextHostel.count < 4) {
+            nextHostel.count++;
+            alert(`Welcome to Hostel ${nextHostel.name} ${firstName} ${lastName}!`);
+          } else {
+            alert(`Sorry, all hostels are full. Please try again later.`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

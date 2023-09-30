@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grade Of Students</title>
+  </head>
+  <body>
+    <h1>Grade Calculator</h1>
+    <script>
+      // Define an array of subjects
+      const subjects = ["Goverment", "Economic", "English", "Commerce", "Literature"];
+
+      // Define an array to store the scores and grades
+      const scores = [];
+      const grades = [];
+
+      // Define a function to prompt the user for each subject score and update the corresponding score and grade
+      function getGrades() {
+        for (let i = 0; i < subjects.length; i++) {
+          let score = prompt(`Enter score for ${subjects[i]}:`);
+          scores[i] = score;
+          grades[i] = calculateGrade(score);
+        }
+      }
+
+      // Define a function to calculate the grade based on the score
+      function calculateGrade(score) {
+        if (score < 40) {
+          return "F";
+        } else if (score < 45) {
+          return "E";
+        } else if (score < 50) {
+          return "D";
+        } else if (score < 60) {
+          return "C";
+        } else if (score < 70) {
+          return "B";
+        } else {
+          return "A";
+        }
+      }
+
+      // Call the getGrades function to prompt the user for each subject score
+      getGrades();
+
+      // Create a table to display the grades for each subject
+      let table = "<table><tr><th>Subject</th><th>Score</th><th>Grade</th></tr>";
+      for (let i = 0; i < subjects.length; i++) {
+        table += `<tr><td>${subjects[i]}</td><td>${scores[i]}</td><td>${grades[i]}</td></tr>`;
+      }
+      table += "</table>";
+
+      // Display the table in the browser
+      document.write(table);
+    </script>
+  </body>
+</html>

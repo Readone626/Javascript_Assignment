@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hostel Allocation</title>
+</head>
+<body>
+  <div>
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <select id="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="number" id="age" placeholder="Age">
+    <button onclick="allocateHostel()">Allocate Hostel</button>
+  </div>
+
+  <script>
+    const hostels = [
+      { name: 'A', count: 0 },
+      { name: 'B', count: 0 },
+      { name: 'C', count: 0 }
+    ];
+
+    function allocateHostel() {
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const gender = document.getElementById("gender").value;
+      const age = document.getElementById("age").value;
+
+      if (hostels[0].count >= 4) {
+        // Hostel A is full, allocate to next available hostel
+        if (hostels[1].count < 4) {
+          // Allocate user to Hostel B
+          hostels[1].count++; // increment count of Hostel B
+          alert(`Welcome to Hostel B, ${firstName} ${lastName}!`);
+        } else if (hostels[2].count < 4) {
+          // Allocate user to Hostel C
+          hostels[2].count++; // increment count of Hostel C
+          alert(`Welcome to Hostel C, ${firstName} ${lastName}!`);
+        } else {
+          // All hostels are full
+          alert("Sorry, all hostels are full. Please try again later.");
+        }
+      } else {
+        // Allocate user to Hostel A
+        hostels[0].count++; // increment count of Hostel A
+        alert(`Welcome to Hostel A, ${firstName} ${lastName}!`);
+      }
+    }
+  </script>
+</body>
+</html>

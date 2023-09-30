@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent input{
+            height: 80px;
+            width: 300px;
+        }
+        #parent{
+            font-size: 2rem;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+    <body>
+        <div id="parent">
+            <form action="">
+                <label for="">Input any statement</label>
+                <input type="text" id="input"><br/><br/>
+                <button type="button" onclick="display()">Click Me</button>
+                <div>
+                    <input type="text" id="root">
+                </div>
+            </form>
+        </div>        
+    </body>
+    <script>
+        let dis = "";
+        function display(){
+            let text = document.getElementById("input").value;
+            let array = getCaps(text);
+            const length = array.length;
+            for (const i of array) {
+                const out = i[0].toUpperCase();
+                const st = parseInt(i.length)
+                dis += out;
+                dis += i.substring(1,st);
+                dis += " ";
+            }
+            console.log(dis)
+            console.log(array.length)
+            document.getElementById("root").value = dis;
+        }
+        function getCaps(txt){
+            const textArray = txt.split(" ");
+            return textArray;
+        }
+    </script>
+</html>
